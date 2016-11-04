@@ -21,8 +21,8 @@ set ylabel "FLOP per Byte"
 set xlabel "End of Year"
 
 
-set yrange [1:40]
-set output "flop-per-byte-sp.eps"
+set yrange [40:1]
+set output "byte-per-flop-sp.eps"
 set title "Theoretical Peak Floating Point Operations per Byte, Single Precision"
 
 # Labels AMD
@@ -64,6 +64,7 @@ set label "NVIDIA Titan X" at 2016,27 center rotate by 30 textcolor rgb "#00D317
 set label "Xeon Phi 7120 (KNC)" at 2014.2,9.5 center rotate by 00
 set label "Xeon Phi 7290 (KNL)" at 2015.8,9.5 center rotate by 30
 
+set key top right
 
 plot 'data-intel.txt'     using 1:($2/$5)           with linesp pt  9 ps 3.0 title "INTEL Xeon CPUs", \
      'data-sp-nvidia.txt' using 1:($2/$4)           with linesp pt  5 ps 3.0 title "NVIDIA Geforce GPUs", \
@@ -71,7 +72,7 @@ plot 'data-intel.txt'     using 1:($2/$5)           with linesp pt  9 ps 3.0 tit
      'data-intel-phi.txt' using 1:($2/$5)           with linesp pt 11 ps 3.0 title "INTEL Xeon Phis"
 
 set yrange [0.5:30]
-set output "flop-per-byte-dp.eps"
+set output "byte-per-flop-dp.eps"
 set title "Theoretical Peak Floating Point Operations per Byte, Double Precision"
 
 unset label
@@ -120,4 +121,3 @@ plot 'data-intel.txt'     using 1:($3/$5) with linesp pt 9 ps 3.0 title "INTEL X
      'data-dp-nvidia.txt' using 1:($2/$4) with linesp pt 5 ps 3.0 title "NVIDIA Tesla GPUs", \
      'data-amd.txt'       using 1:($3/$5) with linesp pt 7 ps 3.0 title "AMD Radeon GPUs", \
      'data-intel-phi.txt' using 1:($3/$5) with linesp pt 11 ps 3.0 title "INTEL Xeon Phis"
-
