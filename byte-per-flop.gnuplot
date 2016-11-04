@@ -7,13 +7,14 @@ set style line 1  linetype -1 linewidth 3 lc rgb "#005197"
 set style line 2  linetype -1 linewidth 3 lc rgb "#00D317"
 set style line 3  linetype -1 linewidth 3 lc rgb "#971c00"
 set style line 4  linetype -1 linewidth 3 lc rgb "#000000"
+set style line 5  linetype -1 linewidth 3 lc rgb "#000000"
 set style increment user
 
 set size 1.15,1.15
 set border linewidth 1.5
 
 set logscale y
-set xrange [2006.4:2016.6]
+set xrange [2003.4:2016.6]
 set key samplen 6 spacing 3.0
 set key bottom right
 set grid lw 3
@@ -21,7 +22,7 @@ set ylabel "FLOP per Byte"
 set xlabel "End of Year"
 
 
-set yrange [40:1]
+set yrange [40:0.02]
 set output "byte-per-flop-sp.eps"
 set title "Theoretical Peak Floating Point Operations per Byte, Single Precision"
 
@@ -71,7 +72,7 @@ plot 'data-intel.txt'     using 1:($2/$5)           with linesp pt  9 ps 3.0 tit
      'data-amd.txt'       using 1:($2/$5)           with linesp pt  7 ps 3.0 title "AMD Radeon GPUs", \
      'data-intel-phi.txt' using 1:($2/$5)           with linesp pt 11 ps 3.0 title "INTEL Xeon Phis"
 
-set yrange [0.5:30]
+set yrange [30:0.1]
 set output "byte-per-flop-dp.eps"
 set title "Theoretical Peak Floating Point Operations per Byte, Double Precision"
 
@@ -110,6 +111,7 @@ set label "Tesla K20X"   at 2013,8 center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla K40"    at 2014,4 center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla K40"    at 2015,4 center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla P100"   at 2016,8 center rotate by 30 textcolor rgb "#00D317"
+set label "SX-8"   at 2004,0.2 center rotate by 30 textcolor rgb "#000000"
 
 # Labels Xeon Phi
 set label "Xeon Phi 7120 (KNC)" at 2014.4,6 center rotate by 00
@@ -120,4 +122,5 @@ set label "Xeon Phi 7290 (KNL)" at 2015.8,4.5 center rotate by 30
 plot 'data-intel.txt'     using 1:($3/$5) with linesp pt 9 ps 3.0 title "INTEL Xeon CPUs", \
      'data-dp-nvidia.txt' using 1:($2/$4) with linesp pt 5 ps 3.0 title "NVIDIA Tesla GPUs", \
      'data-amd.txt'       using 1:($3/$5) with linesp pt 7 ps 3.0 title "AMD Radeon GPUs", \
-     'data-intel-phi.txt' using 1:($3/$5) with linesp pt 11 ps 3.0 title "INTEL Xeon Phis"
+     'data-intel-phi.txt' using 1:($3/$5) with linesp pt 11 ps 3.0 title "INTEL Xeon Phis",\
+     'data-nec.txt'       using 1:($2/$5) with linesp pt  3 ps 3.0 title "NEC Vectors"
