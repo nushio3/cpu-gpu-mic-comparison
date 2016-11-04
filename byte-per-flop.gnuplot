@@ -101,7 +101,7 @@ set label "E5-2699 v3" at 2014,14  center rotate by 30 textcolor rgb "#005197"
 set label "E5-2699 v3" at 2015,15  center rotate by 30 textcolor rgb "#005197"
 set label "E5-2699 v4" at 2016,14  center rotate by 30 textcolor rgb "#005197"
 
-# Labels NVIDIA
+Labels NVIDIA
 set label "Tesla C1060"  at 2008,0.6  center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla C1060"  at 2009,0.6  center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla C2050"  at 2010,5 center rotate by 30 textcolor rgb "#00D317"
@@ -111,16 +111,20 @@ set label "Tesla K20X"   at 2013,8 center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla K40"    at 2014,4 center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla K40"    at 2015,4 center rotate by 30 textcolor rgb "#00D317"
 set label "Tesla P100"   at 2016,8 center rotate by 30 textcolor rgb "#00D317"
-set label "SX-8"   at 2004,0.2 center rotate by 30 textcolor rgb "#000000"
 
-# Labels Xeon Phi
+
+Labels Xeon Phi
 set label "Xeon Phi 7120 (KNC)" at 2014.4,6 center rotate by 00
 set label "Xeon Phi 7290 (KNL)" at 2015.8,4.5 center rotate by 30
 
 
+Latest NEC
+set label "SX-8"   at 2004,0.2 center rotate by 30 textcolor rgb "#000000"
+
+unset labels
 
 plot 'data-intel.txt'     using 1:($3/$5) with linesp pt 9 ps 3.0 title "INTEL Xeon CPUs", \
      'data-dp-nvidia.txt' using 1:($2/$4) with linesp pt 5 ps 3.0 title "NVIDIA Tesla GPUs", \
      'data-amd.txt'       using 1:($3/$5) with linesp pt 7 ps 3.0 title "AMD Radeon GPUs", \
      'data-intel-phi.txt' using 1:($3/$5) with linesp pt 11 ps 3.0 title "INTEL Xeon Phis",\
-     'data-nec.txt'       using 1:($2/$5) with linesp pt  3 ps 3.0 title "NEC Vectors"
+     'data-nec.txt'       using 1:($2/$5) with linesp pt  3 ps 3.0 title "NEC SX-8"
