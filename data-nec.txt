@@ -1,0 +1,7 @@
+# Data of high-end double precision AMD GPUs over the last years
+# Collected by Karl Rupp
+# Details and discussion at
+# http://www.karlrupp.net/2013/06/cpu-gpu-and-mic-hardware-characteristics-over-time/
+#
+#Year  GFLOPs-SP  GFLOPs-DP  Pixel-Shader  Mem-BW  TDP  CUs   Freq(MHz)  Name
+2004      128        128       0          512      0    0      0        "SX-8"
